@@ -1,0 +1,21 @@
+.container
+  .row
+    %h1 Users list
+
+    - if @users.present?
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Username
+            %th Avatar
+            %th Email
+            %th Actions
+        %tbody
+          - @users.each do |n|
+            %tr
+              %td=n.username
+              %td=image_tag(n.avatar.thumb)
+              %td=n.email
+              %td= link_to 'Show', user_path(n)
+    - else
+      %h2 No users
