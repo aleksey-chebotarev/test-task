@@ -1,0 +1,8 @@
+.flash-error
+  - flash.each do |type, message|
+    - if type == 'success'
+      .alert.alert-success= message
+    - elsif type == 'notice'
+      .alert.alert-info= message
+    - elsif type == 'alert' || type == 'error'
+      .alert.alert-danger= message
