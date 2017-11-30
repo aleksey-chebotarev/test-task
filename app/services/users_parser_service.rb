@@ -31,7 +31,7 @@ class UsersParserService
     raise 'Url is not valid' unless res.code == '200'
   end
 
-  def go_to_users_page
+  def transition_to_users_page
     agent = Mechanize.new
     agent.get(@url)
 
@@ -42,11 +42,11 @@ class UsersParserService
     form['user[password]'] = Rails.application.secrets.user_password
     form.submit.link_with(text: 'Users').click
   rescue => error
-    puts "Go to users page: #{error}"
+    raise "Transition with home page to page of users with next error: #{error}"
   end
 
   def data_scraping
-    page = go_to_users_page
+    page = transition_to_users_page
     tbody_structure = page.parser.css('table tbody tr')
 
     data_scraping_validations(page, tbody_structure)
