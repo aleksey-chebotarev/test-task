@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20171129210554) do
   enable_extension "plpgsql"
 
   create_table "forum_users", force: :cascade do |t|
-    t.string "username"
+    t.string "username", null: false
     t.string "profile_url"
     t.string "avatar_image"
     t.date "last_scraped_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["last_scraped_date"], name: "index_forum_users_on_last_scraped_date"
-    t.index ["username"], name: "index_forum_users_on_username"
+    t.index ["username"], name: "index_forum_users_on_username", unique: true
   end
 
   create_table "users", force: :cascade do |t|

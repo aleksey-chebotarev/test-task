@@ -1,0 +1,6 @@
+users_scraping:
+  every:
+    - '24h'
+  class: 'UsersScraping'
+  queue: default
+  description: 'This job will scraping data from users list every 24h'

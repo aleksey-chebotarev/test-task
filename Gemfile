@@ -16,6 +16,11 @@ gem 'devise', '~> 4.3'
 gem 'jquery-rails'
 gem 'ffaker'
 gem 'mechanize', '~> 2.7', '>= 2.7.5'
+gem 'resque', require: 'resque/server'
+gem 'resque-scheduler'
+gem 'redis-namespace', '~> 1.5', '>= 1.5.3'
+gem 'redis', '~> 3.3', '>= 3.3.5'
+gem 'resque-scheduler-web'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
